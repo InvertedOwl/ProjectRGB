@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class AberrationController : MonoBehaviour
 {
-    public float globalAberration;
-    // public Slider slider;
     public float aberration;
     void Update()
     {

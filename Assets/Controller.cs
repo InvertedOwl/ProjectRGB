@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+    public float speed = 10;
+    public float jumpHeight = 10;
     private bool _onGround;
     private Rigidbody2D rb2;
 
@@ -14,8 +16,16 @@ public class Controller : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-            Debug.Log("Ello");
-            rb2.velocity = new Vector2(-1, 0);
+            rb2.velocity = new Vector2(-1 * speed, rb2.velocity.y);
+        }
+
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+            rb2.velocity = new Vector2(1 * speed, rb2.velocity.y);
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && _onGround) {
+            rb2.velocity = new Vector2(rb2.velocity.x, jumpHeight);
+            _onGround = false;
         }
     }
 
