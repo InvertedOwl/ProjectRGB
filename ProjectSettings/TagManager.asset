@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Death
+  - Spawn
   layers:
   - Default
   - TransparentFX
@@ -11,13 +13,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Red
+  - Green
+  - Blue
+  - Trigger
+  - RedTrigger
+  - GreenTrigger
+  - BlueTrigger
   - 
   - 
   - 
