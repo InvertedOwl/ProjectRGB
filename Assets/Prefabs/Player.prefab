@@ -182,6 +182,7 @@ MonoBehaviour:
   speed: 1.45
   maxSpeed: 20
   jumpHeight: 25
+  ySquish: 5
 --- !u!1 &3586665715468327875
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4747436574116007776}
   - component: {fileID: 8415477389409948463}
+  - component: {fileID: 2606273199241542783}
   m_Layer: 8
   m_Name: Square
   m_TagString: Player
@@ -261,6 +263,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.92, y: 0.85}
   m_EdgeRadius: 0
+--- !u!114 &2606273199241542783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586665715468327875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954588dd78fed22408e4770e39894bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScale: 1
+  speed: 15
 --- !u!1 &3681082240996285761
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8918777119099464800}
   - component: {fileID: 6755626892090561577}
+  - component: {fileID: 3481056087184280316}
   m_Layer: 7
   m_Name: Square
   m_TagString: Player
@@ -340,6 +357,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.92, y: 0.85}
   m_EdgeRadius: 0
+--- !u!114 &3481056087184280316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681082240996285761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954588dd78fed22408e4770e39894bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScale: 1
+  speed: 15
 --- !u!1 &4359017589560799315
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7148434935012873220}
   - component: {fileID: 8294437672360310285}
+  - component: {fileID: 3760664146266151022}
   m_Layer: 6
   m_Name: Square
   m_TagString: Player
@@ -496,6 +528,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.92, y: 0.85}
   m_EdgeRadius: 0
+--- !u!114 &3760664146266151022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752169224259053950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954588dd78fed22408e4770e39894bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScale: 1
+  speed: 15
 --- !u!1 &7704250671722035980
 GameObject:
   m_ObjectHideFlags: 0

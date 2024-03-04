@@ -16,7 +16,7 @@ public class Filter : MonoBehaviour
                 Debug.Log(child.parent.gameObject.layer +", "+ colorToRemove);
                 if (child.parent.gameObject.layer == LayerMask.NameToLayer(colorToRemove))
                 {
-                    child.parent.gameObject.active = false;
+                    child.parent.gameObject.GetComponent<LerpScale>().targetScale = 0;
                 }
             }
         }

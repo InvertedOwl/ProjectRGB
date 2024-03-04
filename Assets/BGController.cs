@@ -59,17 +59,14 @@ public class BGController : MonoBehaviour
             if (tick % tickMod == 0)
             {
                 float action = (float)_random.Next() % 3;
-                Debug.Log("Action" + action);
                 switch (action)
                 {
                     case 0:
                         shape.targetRotation += (float)(_random.NextDouble() * 100) - 50;
-                        Debug.Log(1);
                         break;
                     case 1:
                         shape.aberration.aberrateX += (float)(_random.NextDouble() * 20) - 10;
                         shape.aberration.aberrateY += (float)(_random.NextDouble() * 20) - 10;
-                        Debug.Log(2);
                         break;
                 }
 

@@ -10,7 +10,7 @@ public class Death : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             Debug.Log("Player died");
-            StartCoroutine(GameObject.FindObjectOfType<LevelController>().LoadLevelWait(GameObject.FindObjectOfType<LevelController>().currentLevel));
+            GameObject.FindObjectOfType<LevelController>().ReloadLevel();
         }
     }
 

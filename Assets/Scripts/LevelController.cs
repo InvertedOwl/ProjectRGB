@@ -28,19 +28,21 @@ public class LevelController : MonoBehaviour
 
         SceneManager.LoadScene(level, LoadSceneMode.Additive);
         currentLevel = level;
-        player.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        player.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-        player.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+        player.transform.GetChild(0).GetChild(0).gameObject.GetComponent<LerpScale>().targetScale = 1;
+        player.transform.GetChild(0).GetChild(1).gameObject.GetComponent<LerpScale>().targetScale = 1;
+        player.transform.GetChild(0).GetChild(2).gameObject.GetComponent<LerpScale>().targetScale = 1;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene Loaded!");
-        Vector3 target = GameObject.FindGameObjectWithTag("Spawn").transform.position;
-        player.transform.position = target;
-        player.transform.GetChild(0).transform.position = target;
-        player.transform.GetChild(1).transform.position = target;
-        player.transform.GetChild(1).GetComponent<FollowObject>().SetToPos(target);
+        if (scene.buildIndex != 0) {
+            Vector3 target = GameObject.FindGameObjectWithTag("Spawn").transform.position;
+            player.transform.position = target;
+            player.transform.GetChild(0).transform.position = target;
+            player.transform.GetChild(1).transform.position = target;
+            player.transform.GetChild(1).GetComponent<FollowObject>().SetToPos(target);
+        }
     }
 
     private void FixedUpdate()
@@ -59,6 +61,7 @@ public class LevelController : MonoBehaviour
 
     public void ReloadLevel()
     {
+        if (open)
         StartCoroutine(LoadLevelWait(currentLevel));
     }
 

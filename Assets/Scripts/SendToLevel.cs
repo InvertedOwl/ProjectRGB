@@ -11,6 +11,9 @@ public class SendToLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartCoroutine(GameObject.FindObjectOfType<LevelController>().LoadLevelWait(level));
+            // other.transform.parent.GetChild(0).GetComponent<LerpScale>().targetScale = 0;
+            // other.transform.parent.GetChild(1).GetComponent<LerpScale>().targetScale = 0;
+            // other.transform.parent.GetChild(2).GetComponent<LerpScale>().targetScale = 0;
         }
     }
 }

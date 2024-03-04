@@ -9,6 +9,7 @@ public class Controller : MonoBehaviour
     public float maxSpeed = 10;
     public float jumpHeight = 10;
     private bool _onGround;
+    public float ySquish = 5;
     private Rigidbody2D rb2;
 
     void Start() {
@@ -39,7 +40,7 @@ public class Controller : MonoBehaviour
         Vector3 scale =
             new Vector3(
                 (1 + Mathf.Pow(Math.Abs(rb2.velocity.x / maxSpeed), 3)) -
-                Math.Abs(rb2.velocity.y / (maxSpeed * 10)),
+                Math.Abs(rb2.velocity.y / (maxSpeed * ySquish)),
                 1.0f - Mathf.Pow(Math.Abs(rb2.velocity.x / (maxSpeed)), 3));
         this.transform.GetChild(0).GetChild(1).localScale = scale;
         this.transform.GetChild(1).GetChild(1).localScale = scale;
@@ -49,10 +50,12 @@ public class Controller : MonoBehaviour
         this.transform.GetChild(1).GetChild(1).transform.localPosition = new Vector3(0, -(1 - (scale.y * 1))/2);
         this.transform.GetChild(2).GetChild(1).transform.localPosition = new Vector3(0, -(1 - (scale.y * 1))/2);
 
-        if (!transform.GetChild(0).gameObject.activeInHierarchy &&
-            !transform.GetChild(1).gameObject.activeInHierarchy && 
-            !transform.GetChild(2).gameObject.activeInHierarchy)
+        if (!(transform.GetChild(0).gameObject.transform.localScale.x > 0.5f) &&
+            !(transform.GetChild(1).gameObject.transform.localScale.x > 0.5f) && 
+            !(transform.GetChild(2).gameObject.transform.localScale.x > 0.5f))
         {
+            rb2.bodyType = RigidbodyType2D.Static;
+
             if (!_reportedDead)
             {
                 Debug.Log("Player died " + _reportedDead);
@@ -63,6 +66,7 @@ public class Controller : MonoBehaviour
         else
         {
             _reportedDead = false;
+            rb2.bodyType = RigidbodyType2D.Dynamic;
         }
     }
 
