@@ -22,6 +22,9 @@ public class Controller : MonoBehaviour
             _onGround = false;
         }
     }
+
+    private bool _reportedDead = false;
+    
     void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
@@ -33,7 +36,34 @@ public class Controller : MonoBehaviour
         }
 
         //Mathf.Pow(rb2.velocity.y/maxSpeed, 3)
-        this.transform.localScale = new Vector3((1 + Mathf.Pow(Math.Abs(rb2.velocity.x/maxSpeed),3))/2, 0.5f - Mathf.Pow(Math.Abs(rb2.velocity.x/(maxSpeed)),3)/2);
+        Vector3 scale =
+            new Vector3(
+                (1 + Mathf.Pow(Math.Abs(rb2.velocity.x / maxSpeed), 3)) -
+                Math.Abs(rb2.velocity.y / (maxSpeed * 10)),
+                1.0f - Mathf.Pow(Math.Abs(rb2.velocity.x / (maxSpeed)), 3));
+        this.transform.GetChild(0).GetChild(1).localScale = scale;
+        this.transform.GetChild(1).GetChild(1).localScale = scale;
+        this.transform.GetChild(2).GetChild(1).localScale = scale;
+
+        this.transform.GetChild(0).GetChild(1).transform.localPosition = new Vector3(0, -(1 - (scale.y * 1))/2);
+        this.transform.GetChild(1).GetChild(1).transform.localPosition = new Vector3(0, -(1 - (scale.y * 1))/2);
+        this.transform.GetChild(2).GetChild(1).transform.localPosition = new Vector3(0, -(1 - (scale.y * 1))/2);
+
+        if (!transform.GetChild(0).gameObject.activeInHierarchy &&
+            !transform.GetChild(1).gameObject.activeInHierarchy && 
+            !transform.GetChild(2).gameObject.activeInHierarchy)
+        {
+            if (!_reportedDead)
+            {
+                Debug.Log("Player died " + _reportedDead);
+                StartCoroutine(GameObject.FindObjectOfType<LevelController>().LoadLevelWait(GameObject.FindObjectOfType<LevelController>().currentLevel));
+                _reportedDead = true;   
+            }
+        }
+        else
+        {
+            _reportedDead = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

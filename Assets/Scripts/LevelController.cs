@@ -57,6 +57,11 @@ public class LevelController : MonoBehaviour
         }
     }
 
+    public void ReloadLevel()
+    {
+        StartCoroutine(LoadLevelWait(currentLevel));
+    }
+
     public IEnumerator LoadLevelWait(int level)
     {
         open = false;

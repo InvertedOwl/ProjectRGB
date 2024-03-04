@@ -13,4 +13,10 @@ public class Death : MonoBehaviour
             StartCoroutine(GameObject.FindObjectOfType<LevelController>().LoadLevelWait(GameObject.FindObjectOfType<LevelController>().currentLevel));
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(transform.position, transform.localScale);
+    }
 }

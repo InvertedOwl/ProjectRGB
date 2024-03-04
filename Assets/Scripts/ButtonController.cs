@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
@@ -24,5 +25,15 @@ public class ButtonController : MonoBehaviour
         rCap.aberrateY = 0;
         bg.aberrateX = 0;
         bg.aberrateY = 0;
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene(index, LoadSceneMode.Single);
     }
 }

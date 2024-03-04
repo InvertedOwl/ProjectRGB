@@ -17,7 +17,8 @@ public class GateController : MonoBehaviour
         {
             if (ticksToWait == 0)
             {
-                if (other.transform.position.x < transform.position.x)
+                Debug.Log("Entered Aberrator");
+                if (other.GetComponentInParent<Rigidbody2D>().velocity.x > 0)
                 {
                     controller.aberrationX = aberrationLeftX;
                     controller.aberrationY = aberrationLeftY;
@@ -31,6 +32,11 @@ public class GateController : MonoBehaviour
                 }
             }            
         }
+    }
+
+    public void Start()
+    {
+        transform.GetChild(0);
     }
 
     private void FixedUpdate()

@@ -8,6 +8,7 @@ public class CanvasStateMachine : MonoBehaviour
     public GameObject pauseMenu;
     public List<GameObject> openedWindows = new List<GameObject>();
     public GameObject currentWindow;
+    public GameObject defaultWindow;
 
     public void OpenWindow(GameObject window)
     {
@@ -46,15 +47,23 @@ public class CanvasStateMachine : MonoBehaviour
 
     public void Update()
     {
+        if (openedWindows.Count == 0 && defaultWindow)
+        {
+            OpenWindow(defaultWindow);
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (openedWindows.Count == 0)
             {
                 OpenWindow(pauseMenu);
             }
-            else
+            else if (defaultWindow == null)
             {
                 CloseWindow();
+            }
+            else
+            {
+                OpenWindow(defaultWindow);
             }
         }
     }
