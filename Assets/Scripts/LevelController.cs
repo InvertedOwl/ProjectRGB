@@ -36,8 +36,13 @@ public class LevelController : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene Loaded!");
-        if (scene.buildIndex != 0) {
+        if (scene.buildIndex != 0 && scene.buildIndex != 1) {
             Vector3 target = GameObject.FindGameObjectWithTag("Spawn").transform.position;
+            Debug.Log(target);
+            if (player == null)
+            {
+                player = GameObject.FindGameObjectWithTag("PlayerCamera");
+            }
             player.transform.position = target;
             player.transform.GetChild(0).transform.position = target;
             player.transform.GetChild(1).transform.position = target;
