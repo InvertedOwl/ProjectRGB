@@ -14,5 +14,11 @@ public class LerpScale : MonoBehaviour
     private void FixedUpdate() {
         _currentScale = Mathf.Lerp(_currentScale, targetScale, Time.deltaTime * speed);
         this.transform.localScale = new Vector3(_currentScale, _currentScale, 1);
+
+        if (targetScale < 0.2f) {
+            GetComponent<Collider2D>().enabled = false;
+        } else {
+            GetComponent<Collider2D>().enabled = true;
+        }
     }
 }
