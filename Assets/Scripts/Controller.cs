@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour
     private bool _onGround;
     public float ySquish = 5;
     private Rigidbody2D rb2;
+    public bool controllsEnabled = true;
 
     void Start() {
         rb2 = this.GetComponent<Rigidbody2D>();
@@ -18,7 +19,7 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && _onGround) {
+        if (((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && _onGround) && controllsEnabled) {
             rb2.velocity = new Vector2(rb2.velocity.x, jumpHeight);
             _onGround = false;
         }
@@ -28,11 +29,11 @@ public class Controller : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && controllsEnabled) {
             rb2.velocity += (new Vector2(-1 * speed , 0));
         }
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && controllsEnabled) {
             rb2.velocity += (new Vector2(1 * speed, 0));
         }
 

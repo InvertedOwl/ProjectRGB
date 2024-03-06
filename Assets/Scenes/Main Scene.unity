@@ -704,7 +704,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 255
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1305,7 +1305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1087342293242639876, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 2316960954717701500, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1316,8 +1316,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4439509029425839534, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439509029425839534, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439509029425839534, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
       propertyPath: orthographic size
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439509029425839534, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5260616282572259655, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
       propertyPath: m_Name
@@ -1370,6 +1382,10 @@ PrefabInstance:
     - target: {fileID: 6778652377046902669, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
       propertyPath: speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778652377046902669, guid: 3a60d7e328249084f890e5e2b1685ffc, type: 3}
+      propertyPath: offset.z
+      value: -9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3621,9 +3637,9 @@ SpriteMask:
   m_BackSortingLayerID: 0
   m_FrontSortingLayer: 0
   m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
+  m_FrontSortingOrder: 256
+  m_BackSortingOrder: 254
+  m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
 --- !u!4 &898207797
 Transform:

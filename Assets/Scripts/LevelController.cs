@@ -31,6 +31,7 @@ public class LevelController : MonoBehaviour
         player.transform.GetChild(0).GetChild(0).gameObject.GetComponent<LerpScale>().targetScale = 1;
         player.transform.GetChild(0).GetChild(1).gameObject.GetComponent<LerpScale>().targetScale = 1;
         player.transform.GetChild(0).GetChild(2).gameObject.GetComponent<LerpScale>().targetScale = 1;
+        player.transform.GetChild(0).GetComponent<Controller>().controllsEnabled = true;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

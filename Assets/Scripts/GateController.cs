@@ -12,7 +12,23 @@ public class GateController : MonoBehaviour
     public float aberrationRightY = 2;
 
     private float ticksToWait = 0;
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
+        Gate(other);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Gate(other);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Gate(other);
+        Debug.Log("Enter");
+    }
+
+    private void Gate(Collider2D other)
+    {
         if (other.CompareTag("Player"))
         {
             if (ticksToWait == 0)
@@ -22,18 +38,18 @@ public class GateController : MonoBehaviour
                 {
                     controller.aberrationX = aberrationLeftX;
                     controller.aberrationY = aberrationLeftY;
-                    ticksToWait += 20;
+                    ticksToWait += 0;
                 }
                 else
                 {
                     controller.aberrationX = aberrationRightX;
                     controller.aberrationY = aberrationRightY;
-                    ticksToWait += 20;
+                    ticksToWait += 0;
                 }
             }            
         }
     }
-
+    
     public void Start()
     {
         transform.GetChild(0);
