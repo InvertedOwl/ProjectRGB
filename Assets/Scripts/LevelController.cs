@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,12 +12,19 @@ public class LevelController : MonoBehaviour
     public GameObject circle;
     public bool open = true;
     public GameObject player;
+    public TMP_Text text;    
+    public TMP_Text text2;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadLevel(startLevel);
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void Update() {
+        text.text = "Level: " + (currentLevel-2);
+        text2.text = text.text;
     }
 
     public void LoadLevel(int level)

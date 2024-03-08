@@ -72,7 +72,7 @@ public class Controller : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (!other.CompareTag("Death"))
+        if (!other.CompareTag("Death") && !other.CompareTag("Trigger"))
             _onGround = true;
     }
 }
