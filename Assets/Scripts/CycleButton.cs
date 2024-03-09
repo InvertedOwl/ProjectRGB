@@ -12,7 +12,6 @@ public class CycleButton : MonoBehaviour
     public String text;
     public ToggleButton fullscreen;
     
-    // Start is called before the first frame update
     void Start()
     {
         int currentWidth = Screen.width;

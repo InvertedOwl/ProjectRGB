@@ -12,6 +12,11 @@ public class CanvasStateMachine : MonoBehaviour
 
     public void OpenWindow(GameObject window)
     {
+        Controller c = GameObject.FindObjectOfType<Controller>();
+        if (c) {
+            c.controllsEnabled = false;
+        }
+
         foreach (ButtonController buttonController in GameObject.FindObjectsOfType<ButtonController>())
         {
             buttonController.HoverExit();
@@ -40,7 +45,11 @@ public class CanvasStateMachine : MonoBehaviour
             GameObject lastWindow = openedWindows[openedWindows.Count - 2];
             lastWindow.SetActive(true);
             currentWindow = lastWindow;
-        }   
+        }
+        else
+        {
+            GameObject.FindObjectOfType<Controller>().controllsEnabled = true;
+        }
         openedWindows.Remove(openedWindows[openedWindows.Count - 1]);
 
     }
@@ -49,7 +58,14 @@ public class CanvasStateMachine : MonoBehaviour
     {
         if (openedWindows.Count == 0 && defaultWindow)
         {
-            OpenWindow(defaultWindow);
+            try
+            {
+                OpenWindow(defaultWindow);
+            }
+            catch (Exception iwanttobedone)
+            {
+                
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

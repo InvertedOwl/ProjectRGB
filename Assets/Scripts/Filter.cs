@@ -17,6 +17,7 @@ public class Filter : MonoBehaviour
                 if (child.parent.gameObject.layer == LayerMask.NameToLayer(colorToRemove))
                 {
                     child.parent.gameObject.GetComponent<LerpScale>().targetScale = 0;
+                    GameObject.FindObjectOfType<SoundController>().Play(1);
                 }
             }
         }

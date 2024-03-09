@@ -12,6 +12,8 @@ public class GateController : MonoBehaviour
     public float aberrationRightY = 2;
 
     private float ticksToWait = 0;
+    private float lastAberrationx;
+    private float lastAberrationy;
     private void OnTriggerStay2D(Collider2D other) {
         Gate(other);
     }
@@ -34,17 +36,23 @@ public class GateController : MonoBehaviour
             if (ticksToWait == 0)
             {
                 Debug.Log("Entered Aberrator");
-                if (other.GetComponentInParent<Rigidbody2D>().velocity.x > 0)
+                if (other.GetComponentInParent<Rigidbody2D>().velocity.x > 0) // (!(aberrationLeftX==lastAberrationx) && !(aberrationLeftY==lastAberrationy))
                 {
                     controller.aberrationX = aberrationLeftX;
                     controller.aberrationY = aberrationLeftY;
+                    lastAberrationx = aberrationLeftX;
+                    lastAberrationy = aberrationLeftY;
                     ticksToWait += 0;
+                    GameObject.FindObjectOfType<SoundController>().Play(3, variance:0);
                 }
-                else
+                else //if (!(aberrationRightX==lastAberrationx) && !(aberrationRightY==lastAberrationy))
                 {
                     controller.aberrationX = aberrationRightX;
                     controller.aberrationY = aberrationRightY;
+                    lastAberrationx = aberrationRightX;
+                    lastAberrationy = aberrationRightY;
                     ticksToWait += 0;
+                    GameObject.FindObjectOfType<SoundController>().Play(4, variance:0);
                 }
             }            
         }

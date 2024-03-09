@@ -38,7 +38,7 @@ public class BGController : MonoBehaviour
                 float x = (float) (_random.NextDouble() * size * 2) - (size);
                 float y = (float) (_random.NextDouble() * size * 2) - (size);
                 GameObject instantiatedShape = GameObject.Instantiate(shape, this.transform);
-                instantiatedShape.transform.position = new Vector3(x, y);
+                instantiatedShape.transform.position = new Vector3(x + (useScreen?(Screen.width/2):0), y + (useScreen?(Screen.height/2):0));
                 instantiatedShape.transform.eulerAngles = new Vector3(0, 0, _random.Next() % 360);
                 float scale = (float)(_random.NextDouble()/6) + 0.1f;
                 instantiatedShape.transform.localScale -= new Vector3(scale * scaleMultiplier, scale * scaleMultiplier);

@@ -9,7 +9,6 @@ public class FollowObject : MonoBehaviour
     public float speed;
     private Vector3 _current;
 
-    // Update is called once per frame
     void Update()
     {
         _current = Vector3.Lerp(_current, follow.position + offset, Time.deltaTime * speed);

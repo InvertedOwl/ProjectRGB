@@ -26,6 +26,12 @@ public class ButtonController : MonoBehaviour
         bg.aberrateX = 0;
         bg.aberrateY = 0;
     }
+    
+
+    public void Click()
+    {
+        GameObject.FindObjectOfType<SoundController>().Play(0);
+    }
 
     public void Quit()
     {

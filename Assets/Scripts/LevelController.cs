@@ -15,7 +15,6 @@ public class LevelController : MonoBehaviour
     public TMP_Text text;    
     public TMP_Text text2;
 
-    // Start is called before the first frame update
     void Start()
     {
         LoadLevel(startLevel);

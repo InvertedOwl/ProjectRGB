@@ -19,7 +19,6 @@ public class AberrationGate : MonoBehaviour
         _controller.blue.transform.eulerAngles = new Vector3(0, 0, UnityEngine.Random.Range(0, 360));
     }
 
-    // Update is called once per frame
     void Update()
     {
         _controller.red.transform.eulerAngles += new Vector3(0, 0, _redSpeed);

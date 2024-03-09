@@ -22,6 +22,7 @@ public class Controller : MonoBehaviour
         if (((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && _onGround) && controllsEnabled) {
             rb2.velocity = new Vector2(rb2.velocity.x, jumpHeight);
             _onGround = false;
+            GameObject.FindObjectOfType<SoundController>().Play(2);
         }
     }
 
