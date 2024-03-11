@@ -17,7 +17,11 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
-        LoadLevel(startLevel);
+        if (PlayerPrefs.HasKey("furthest")) {
+            LoadLatestLevel();
+        } else {
+            LoadLevel(startLevel);
+        }
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -39,6 +43,17 @@ public class LevelController : MonoBehaviour
         player.transform.GetChild(0).GetChild(1).gameObject.GetComponent<LerpScale>().targetScale = 1;
         player.transform.GetChild(0).GetChild(2).gameObject.GetComponent<LerpScale>().targetScale = 1;
         player.transform.GetChild(0).GetComponent<Controller>().controllsEnabled = true;
+        if (PlayerPrefs.HasKey("latest")) {
+            if (level > PlayerPrefs.GetInt("furthest")) {
+                PlayerPrefs.SetInt("furthest", level);
+            }
+        } else {
+                PlayerPrefs.SetInt("furthest", level);
+        }
+    }
+
+    public void LoadLatestLevel() {
+        LoadLevel(PlayerPrefs.GetInt("furthest"));
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
