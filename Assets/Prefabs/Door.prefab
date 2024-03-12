@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 707445858220384314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000010430813, y: 0, z: 0}
+  m_LocalPosition: {x: -1.625, y: 0, z: -0.08976089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -360,7 +360,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9093695933509031662}
-  - component: {fileID: 8004898192830583220}
   m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
@@ -386,25 +385,6 @@ Transform:
   - {fileID: 1475674796378819116}
   m_Father: {fileID: 7218992758958355657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8004898192830583220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1293459934589860811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df44bb250a53fdc4e9fcc512d0886ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  red: {fileID: 8854208050153243099}
-  green: {fileID: 707445858220384314}
-  blue: {fileID: 1516195207240933358}
-  aberrateX: 0
-  aberrateY: 0
-  useLerp: 1
-  acceptGlobalEditing: 1
 --- !u!1 &1516195207240933358
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 1516195207240933358}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000010430813, y: 0, z: 0}
+  m_LocalPosition: {x: -1.625, y: 0, z: -0.08976089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -729,6 +709,8 @@ GameObject:
   - component: {fileID: 7218992758958355657}
   - component: {fileID: 1314506056226200825}
   - component: {fileID: 1428815876252133059}
+  - component: {fileID: 8793828448675184603}
+  - component: {fileID: 7045257383309983455}
   m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
@@ -765,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377eca587fa2a104e90627ee5735d93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: -1
   mask: {fileID: 5401081727449797400}
 --- !u!50 &1428815876252133059
 Rigidbody2D:
@@ -794,6 +776,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8793828448675184603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847044975051254068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0892e8a79a2589143aa6deee655f7315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: door
+--- !u!114 &7045257383309983455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847044975051254068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df44bb250a53fdc4e9fcc512d0886ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  red: {fileID: 8854208050153243099}
+  green: {fileID: 707445858220384314}
+  blue: {fileID: 1516195207240933358}
+  aberrateX: 0
+  aberrateY: 0
+  useLerp: 1
+  acceptGlobalEditing: 1
 --- !u!1 &5255358931163425502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1036,7 @@ Transform:
   m_GameObject: {fileID: 8854208050153243099}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000010430813, y: 0, z: 0}
+  m_LocalPosition: {x: -1.625, y: 0, z: -0.08976089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 5720221700218293914}
   - component: {fileID: 1256901748425064842}
   - component: {fileID: 2232720843782234505}
+  - component: {fileID: 6346157464746316880}
   m_Layer: 9
   m_Name: Aberration Gate
   m_TagString: Untagged
@@ -323,10 +324,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  aberrationLeftX: 500
-  aberrationLeftY: 500
-  aberrationRightX: 500
-  aberrationRightY: 500
+  aberrationLeftX: 50
+  aberrationLeftY: 50
+  aberrationRightX: 0
+  aberrationRightY: 0
 --- !u!50 &2232720843782234505
 Rigidbody2D:
   serializedVersion: 4
@@ -354,6 +355,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6346157464746316880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491769407680611324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0892e8a79a2589143aa6deee655f7315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: gate
 --- !u!1 &8742117966772622538
 GameObject:
   m_ObjectHideFlags: 0

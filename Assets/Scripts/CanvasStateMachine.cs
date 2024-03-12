@@ -48,7 +48,10 @@ public class CanvasStateMachine : MonoBehaviour
         }
         else
         {
-            GameObject.FindObjectOfType<Controller>().controllsEnabled = true;
+            if (GameObject.FindObjectOfType<Controller>())
+            {
+                GameObject.FindObjectOfType<Controller>().controllsEnabled = true;
+            }
         }
         openedWindows.Remove(openedWindows[openedWindows.Count - 1]);
 
